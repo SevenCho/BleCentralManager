@@ -15,6 +15,12 @@
 		A1E2ACB0209403BA00486590 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E2ACAF209403BA00486590 /* main.m */; };
 		A1E2ACBA209403BA00486590 /* BleCentralManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E2ACB9209403BA00486590 /* BleCentralManagerTests.m */; };
 		A1E2ACC5209403BA00486590 /* BleCentralManagerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E2ACC4209403BA00486590 /* BleCentralManagerUITests.m */; };
+		A1E2ACD52094042300486590 /* XSBleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E2ACD42094042200486590 /* XSBleManager.m */; };
+		A1E2ACDB2094143C00486590 /* XSPeripheralsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E2ACD92094143C00486590 /* XSPeripheralsViewController.m */; };
+		A1E2ACDC2094143C00486590 /* XSPeripheralsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E2ACDA2094143C00486590 /* XSPeripheralsViewController.xib */; };
+		A1E2ACE42094159D00486590 /* XSPeripheralCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E2ACE22094159D00486590 /* XSPeripheralCell.m */; };
+		A1E2ACE52094159D00486590 /* XSPeripheralCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1E2ACE32094159D00486590 /* XSPeripheralCell.xib */; };
+		A1E2ACE92094162B00486590 /* XSPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E2ACE82094162B00486590 /* XSPeripheral.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +57,17 @@
 		A1E2ACC0209403BA00486590 /* BleCentralManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BleCentralManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1E2ACC4209403BA00486590 /* BleCentralManagerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BleCentralManagerUITests.m; sourceTree = "<group>"; };
 		A1E2ACC6209403BA00486590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1E2ACD32094042200486590 /* XSBleManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSBleManager.h; sourceTree = "<group>"; };
+		A1E2ACD42094042200486590 /* XSBleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSBleManager.m; sourceTree = "<group>"; };
+		A1E2ACD6209406FF00486590 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		A1E2ACD82094143C00486590 /* XSPeripheralsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XSPeripheralsViewController.h; sourceTree = "<group>"; };
+		A1E2ACD92094143C00486590 /* XSPeripheralsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XSPeripheralsViewController.m; sourceTree = "<group>"; };
+		A1E2ACDA2094143C00486590 /* XSPeripheralsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XSPeripheralsViewController.xib; sourceTree = "<group>"; };
+		A1E2ACE12094159D00486590 /* XSPeripheralCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XSPeripheralCell.h; sourceTree = "<group>"; };
+		A1E2ACE22094159D00486590 /* XSPeripheralCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XSPeripheralCell.m; sourceTree = "<group>"; };
+		A1E2ACE32094159D00486590 /* XSPeripheralCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XSPeripheralCell.xib; sourceTree = "<group>"; };
+		A1E2ACE72094162B00486590 /* XSPeripheral.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XSPeripheral.h; sourceTree = "<group>"; };
+		A1E2ACE82094162B00486590 /* XSPeripheral.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XSPeripheral.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,15 +118,14 @@
 		A1E2AC9F209403B900486590 /* BleCentralManager */ = {
 			isa = PBXGroup;
 			children = (
+				A1E2ACD6209406FF00486590 /* PrefixHeader.pch */,
 				A1E2ACA0209403B900486590 /* AppDelegate.h */,
 				A1E2ACA1209403B900486590 /* AppDelegate.m */,
-				A1E2ACA3209403B900486590 /* ViewController.h */,
-				A1E2ACA4209403B900486590 /* ViewController.m */,
-				A1E2ACA6209403B900486590 /* Main.storyboard */,
-				A1E2ACA9209403B900486590 /* Assets.xcassets */,
-				A1E2ACAB209403B900486590 /* LaunchScreen.storyboard */,
-				A1E2ACAE209403BA00486590 /* Info.plist */,
-				A1E2ACAF209403BA00486590 /* main.m */,
+				A1E2ACEA2094163600486590 /* Models */,
+				A1E2ACE02094152D00486590 /* Utilities */,
+				A1E2ACE6209415A300486590 /* Cells */,
+				A1E2ACDD209414E200486590 /* ViewControllers */,
+				A1E2ACD72094081C00486590 /* Supporting Files */,
 			);
 			path = BleCentralManager;
 			sourceTree = "<group>";
@@ -130,6 +146,58 @@
 				A1E2ACC6209403BA00486590 /* Info.plist */,
 			);
 			path = BleCentralManagerUITests;
+			sourceTree = "<group>";
+		};
+		A1E2ACD72094081C00486590 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A1E2ACA9209403B900486590 /* Assets.xcassets */,
+				A1E2ACAB209403B900486590 /* LaunchScreen.storyboard */,
+				A1E2ACAF209403BA00486590 /* main.m */,
+				A1E2ACAE209403BA00486590 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A1E2ACDD209414E200486590 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A1E2ACA3209403B900486590 /* ViewController.h */,
+				A1E2ACA4209403B900486590 /* ViewController.m */,
+				A1E2ACA6209403B900486590 /* Main.storyboard */,
+				A1E2ACD82094143C00486590 /* XSPeripheralsViewController.h */,
+				A1E2ACD92094143C00486590 /* XSPeripheralsViewController.m */,
+				A1E2ACDA2094143C00486590 /* XSPeripheralsViewController.xib */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A1E2ACE02094152D00486590 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A1E2ACD32094042200486590 /* XSBleManager.h */,
+				A1E2ACD42094042200486590 /* XSBleManager.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		A1E2ACE6209415A300486590 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A1E2ACE12094159D00486590 /* XSPeripheralCell.h */,
+				A1E2ACE22094159D00486590 /* XSPeripheralCell.m */,
+				A1E2ACE32094159D00486590 /* XSPeripheralCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		A1E2ACEA2094163600486590 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A1E2ACE72094162B00486590 /* XSPeripheral.h */,
+				A1E2ACE82094162B00486590 /* XSPeripheral.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,7 +267,7 @@
 				TargetAttributes = {
 					A1E2AC9C209403B900486590 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					A1E2ACB4209403BA00486590 = {
 						CreatedOnToolsVersion = 9.2;
@@ -239,8 +307,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1E2ACAD209403B900486590 /* LaunchScreen.storyboard in Resources */,
+				A1E2ACDC2094143C00486590 /* XSPeripheralsViewController.xib in Resources */,
 				A1E2ACAA209403B900486590 /* Assets.xcassets in Resources */,
 				A1E2ACA8209403B900486590 /* Main.storyboard in Resources */,
+				A1E2ACE52094159D00486590 /* XSPeripheralCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +336,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1E2ACA5209403B900486590 /* ViewController.m in Sources */,
+				A1E2ACE92094162B00486590 /* XSPeripheral.m in Sources */,
+				A1E2ACE42094159D00486590 /* XSPeripheralCell.m in Sources */,
 				A1E2ACB0209403BA00486590 /* main.m in Sources */,
+				A1E2ACD52094042300486590 /* XSBleManager.m in Sources */,
+				A1E2ACDB2094143C00486590 /* XSPeripheralsViewController.m in Sources */,
 				A1E2ACA2209403B900486590 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,12 +504,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = NSXWD9BJ9H;
+				GCC_PREFIX_HEADER = BleCentralManager/PrefixHeader.pch;
 				INFOPLIST_FILE = BleCentralManager/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kydz-wx.BleCentralManager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7b11c1fa-eff3-48d2-91d0-0af2ebdac6d7";
+				PROVISIONING_PROFILE_SPECIFIER = Seven_development;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -444,12 +522,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = NSXWD9BJ9H;
+				GCC_PREFIX_HEADER = BleCentralManager/PrefixHeader.pch;
 				INFOPLIST_FILE = BleCentralManager/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kydz-wx.BleCentralManager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "7b11c1fa-eff3-48d2-91d0-0af2ebdac6d7";
+				PROVISIONING_PROFILE_SPECIFIER = Seven_development;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

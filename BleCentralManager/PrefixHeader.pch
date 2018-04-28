@@ -1,0 +1,109 @@
+//
+//  PrefixHeader.pch
+//  KYDW
+//
+//  Created by 曹雪松 on 9/28/15.
+//  Copyright © 2015 SevenCho. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch /* PrefixHeader_pch */
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#endif
+
+#ifdef DEBUG // 调试状态, 打开LOG功能
+#define XSLog(...) NSLog(__VA_ARGS__)
+
+#else // 发布状态, 关闭LOG功能
+#define XSLog(...)
+
+#endif
+
+//// 打印方法调用
+#define XSLogFunc XSLog(@"%s ", __func__);
+//#define XSLogFuc XSLogInfo(@"line :%d %s ", __LINE__, __func__);
+
+// 颜色设置
+#define XSColor(r, g, b)        [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+// 有透明度的颜色
+#define XSColorA(r, g, b, a)    [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0]
+// 灰色
+#define XSGrayColor(value)      XSColor(value, value, value)
+// 系统默认蓝色 0, 0.478431, 1
+#define XSSystemBlueColor [UIColor colorWithRed:0 green:0.478431 blue:1 alpha:1]  
+// 全局灰色
+#define XSCommonBgColor         XSColor(239, 239, 244)
+// 按钮背景颜色
+#define XSCommonBtnBgColor      XSColor(252, 186, 73)
+// 通用文字颜色
+#define XSGeneralTextColor      XSColor(80, 198, 227)
+// 导航栏颜色
+#define XSNavigationBarColor      XSColorA(80, 198, 227, 0.8)
+// 随机色
+#define XSRandomColor           [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
+
+// App 名称
+#define kAppDisplayName [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]
+// 屏幕的宽度
+#define XSScreenW [UIScreen mainScreen].bounds.size.width
+// 屏幕的高度
+#define XSScreenH [UIScreen mainScreen].bounds.size.height
+
+#define XSFileManger [NSFileManager defaultManager]
+
+/// 状态栏高度
+#define XSStatusBarH [[UIApplication sharedApplication] statusBarFrame].size.height
+/// 导航栏高度
+#define XSNavigationBarH (XSStatusBarH + 44)
+/// tabbar栏高度
+#define XSTabbarH [[(id)[UIApplication sharedApplication].keyWindow.rootViewController tabBar] frame].size.height
+
+// 判断系统的版本
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+#define iOS8 ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0)
+#define iOS9 ([[UIDevice currentDevice].systemVersion doubleValue] >= 9.0)
+
+// 屏幕尺寸
+#define is_3_5Inch ([UIScreen mainScreen].bounds.size.height == 480)
+#define is_4_0Inch ([UIScreen mainScreen].bounds.size.height == 568)
+#define is_4_7Inch ([UIScreen mainScreen].bounds.size.height == 667)
+#define is_5_5Inch ([UIScreen mainScreen].bounds.size.height == 736)
+#define is_5_8Inch ([UIScreen mainScreen].bounds.size.height == 812)
+
+// 弱/强引用
+#define kWeakSelf(type)  __weak typeof(type) weak##type = type;
+#define kStrongSelf(type) __strong typeof(type) type = weak##type;
+
+#define kApplication        [UIApplication sharedApplication]
+#define kKeyWindow          [UIApplication sharedApplication].keyWindow
+#define kAppDelegate        [UIApplication sharedApplication].delegate
+#define kUserDefaults       [NSUserDefaults standardUserDefaults]
+#define kNotificationCenter [NSNotificationCenter defaultCenter]
+
+#define kStringIsEmpty(str) ([str isKindOfClass:[NSNull class]] || str == nil || [str length] < 1 ? YES : NO)
+#define kArrayIsEmpty(array) (array == nil || [array isKindOfClass:[NSNull class]] || array.count == 0)
+#define kDictIsEmpty(dic) (dic == nil || [dic isKindOfClass:[NSNull class]] || dic.allKeys == 0)
+#define kObjectIsEmpty(_object) (_object == nil \
+|| [_object isKindOfClass:[NSNull class]] \
+|| ([_object respondsToSelector:@selector(length)] && [(NSData *)_object length] == 0) \
+|| ([_object respondsToSelector:@selector(count)] && [(NSArray *)_object count] == 0))
+
+// 为了解析服务器返回的数据 写到pilst文件里面看更清晰
+#define XSWriteToPlist(obj, filename) [obj writeToFile:[NSString stringWithFormat:@"/Users/sevencho/Desktop/%@.plist", filename] atomically:YES];
+
+// 消除调用performSelector在ARC下的警告 （系统无法确定返回值类型）
+#define SuppressPerformSelectorLeakWarning(Stuff) \
+do { \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+Stuff; \
+_Pragma("clang diagnostic pop") \
+} while (0)
+
+#endif /* PrefixHeader_pch */
+
+
