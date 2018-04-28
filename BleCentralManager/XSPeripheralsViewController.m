@@ -21,6 +21,23 @@
 {
     [super viewDidLoad];
     
+    [self setupNavItem];
+}
+
+- (void)setupNavItem
+{
+    UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    cancelBtn.frame = CGRectMake(0, 0, 50, 50);
+    [cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
+    [cancelBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    cancelBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [cancelBtn addTarget:self action:@selector(cancelBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:cancelBtn];
+}
+
+- (void)cancelBtnClick
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)setPeripherals:(NSArray<XSPeripheral *> *)peripherals

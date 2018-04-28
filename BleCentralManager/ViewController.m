@@ -83,8 +83,11 @@
 - (void)xs_centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {
     XSLog(@"%@", peripheral.name);
+    
     XSPeripheral *peripheralModel = [[XSPeripheral alloc] init];
-    peripheralModel.peripheralName = peripheral.name;
+//    peripheralModel.peripheralName = peripheral.name;
+    NSString *peripherallName = [advertisementData valueForKey:@"kCBAdvDataLocalName"]; // 这个蓝牙名称刷新比较快 比较准确 (有时候蓝牙设备修改名称 peripheral.name 不会立即刷新)
+    peripheralModel.peripheralName = peripherallName;
     peripheralModel.peripheralRssi = RSSI.stringValue;
     NSString *stateSting = nil;
     switch (peripheral.state) {
@@ -135,6 +138,7 @@
     for (CBCharacteristic *characteristic in service.characteristics) {
         XSLog(@"搜索到的服务：%@ 对应的所有：Characteristic:%@", service, characteristic);
         
+        // 具体的特征值的作用请参考公司文档或者和公司硬件工程师沟通
         // 可订阅的特征
 //        if ([characteristic.UUID.UUIDString isEqualToString:CharacteristicNotifyUUIDString]) {
 //            [peripheral setNotifyValue:YES forCharacteristic:characteristic];
@@ -156,16 +160,22 @@
 - (void)xs_peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
     XSLogFunc
+    // 连接的蓝牙设备发送数据会在这里接收
+    
+    // 写入数据方式
+    // [_connectedPeripheral writeValue:data forCharacteristic:characteristic type:CBCharacteristicWriteWithResponse];
 }
 
 - (void)xs_peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
     XSLogFunc
+    // 每包数据写入成功， 回调这里 (蓝牙数据发送需要分包 拆分为每包16个字节发送)
 }
 
 - (void)xs_peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
   XSLogFunc
+    // 订阅特征值成功，有更新回调这里
 }
 
 @end
